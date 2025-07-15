@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="Login" xml:space="preserve">
+    <value>Увійти</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Ім'я користувача</value>
+  </data>
+  <data name="Username Placeholder" xml:space="preserve">
+    <value>Введіть ім'я користувача</value>
+  </data>
+</root> 

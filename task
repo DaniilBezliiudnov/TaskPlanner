@@ -1,0 +1,21 @@
+Your task is to develop a Task Planner web app
+
+Main audience - folks from big IT company
+
+Core features:
+- Task items should have Name (100 symbols), Description (1k symbols), Due Date (Date time)
+- It should be possible to add or remove tasks
+- It should be possible to mark tasks as completed
+
+Technologies
+- Web based app
+- it should support desktop web interface, but not necessarily tablets and phones
+- .NET Core + Razor Pages
+- Very simple authentication, just user name, not password
+- Use a persistent file-based storage
+- No integrations
+- Use MS Project-like design/UI
+- No compliance requirements
+- Add localization: EN and UA languages
+- Deploy this app on a localhost
+- No logs or analytics needed, besides proper error handling

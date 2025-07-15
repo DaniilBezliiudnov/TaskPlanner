@@ -1,0 +1,25 @@
+@page
+@model LoginModel
+@{
+    ViewData["Title"] = Model.Localizer["Login"];
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title mb-3">@Model.Localizer["Login"]</h3>
+                    <form method="post">
+                        <div class="mb-3">
+                            <label asp-for="Username" class="form-label">@Model.Localizer["Username"]</label>
+                            <input asp-for="Username" class="form-control" maxlength="50" required placeholder="@Model.Localizer["Username Placeholder"]" />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">@Model.Localizer["Login"]</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

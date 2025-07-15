@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "cqEGUtlxXmSlbTA92cMjd/sjsNKrayvAbyMCWsTYjMy9TnBVmw102KjzG5GvZO3WLhjNnnV1bpH6FSh31TH2JQ==",
+  "success": true,
+  "projectFilePath": "C:\\Git\\vibe_coding_task\\TaskPlanner\\TaskPlanner.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Daniil_Bezliudnov\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Daniil_Bezliudnov\\.nuget\\packages\\microsoft.extensions.localization\\8.0.0\\microsoft.extensions.localization.8.0.0.nupkg.sha512",
+    "C:\\Users\\Daniil_Bezliudnov\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\8.0.0\\microsoft.extensions.localization.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Daniil_Bezliudnov\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Daniil_Bezliudnov\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "C:\\Users\\Daniil_Bezliudnov\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

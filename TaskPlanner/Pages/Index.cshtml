@@ -1,0 +1,84 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Task Planner";
+}
+
+<div class="container mt-4">
+    <form method="post" asp-page-handler="Add" class="mb-4">
+        <div class="row g-2">
+            <div class="col-md-3">
+                <input asp-for="NewTask.Name" class="form-control" maxlength="100" placeholder="@Model.Localizer["Name"]" required />
+                <span asp-validation-for="NewTask.Name" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                <input asp-for="NewTask.Description" class="form-control" maxlength="1000" placeholder="@Model.Localizer["Description"]" />
+                <span asp-validation-for="NewTask.Description" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <input asp-for="NewTask.DueDate" type="text" class="form-control" required placeholder="@Model.Localizer["Due Date Placeholder"]" autocomplete="off" id="dueDateInput" />
+                <span asp-validation-for="NewTask.DueDate" class="text-danger"></span>
+            </div>
+            <div class="col-md-2 d-grid">
+                <button type="submit" class="btn btn-primary">@Model.Localizer["Add Task"]</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @if (Model.Tasks != null && Model.Tasks.Count > 0)
+        {
+            foreach (var task in Model.Tasks)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-@((task.IsCompleted ? "success" : "warning"))">
+                        <div class="card-body">
+                            <h5 class="card-title">@task.Name</h5>
+                            <p class="card-text">@task.Description</p>
+                            <p class="card-text small text-muted">@Model.Localizer["Due Date"]: @task.DueDate.ToString(System.Globalization.CultureInfo.CurrentUICulture)</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 d-flex justify-content-between align-items-center">
+                            <span class="badge bg-@((task.IsCompleted ? "success" : "warning text-dark"))">
+                                @(task.IsCompleted ? Model.Localizer["Completed"] : Model.Localizer["Pending"])
+                            </span>
+                            <div>
+                                @if (!task.IsCompleted)
+                                {
+                                    <form method="post" asp-page-handler="Complete" asp-route-id="@task.Id" style="display:inline">
+                                        <button type="submit" class="btn btn-outline-success btn-sm">@Model.Localizer["Complete"]</button>
+                                    </form>
+                                }
+                                <form method="post" asp-page-handler="Remove" asp-route-id="@task.Id" style="display:inline">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">@Model.Localizer["Remove"]</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col"><div class="alert alert-info text-center">@Model.Localizer["No tasks found."]</div></div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/uk.js"></script>
+    <script>
+        function initFlatpickr() {
+            var lang = document.documentElement.lang;
+            flatpickr("#dueDateInput", {
+                enableTime: true,
+                dateFormat: "Y-m-d H:i",
+                time_24hr: true,
+                locale: lang === "uk" ? flatpickr.l10ns.uk : "en"
+            });
+        }
+        document.addEventListener("DOMContentLoaded", initFlatpickr);
+    </script>
+}
